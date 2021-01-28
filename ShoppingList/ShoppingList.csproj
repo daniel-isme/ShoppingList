@@ -18,6 +18,12 @@
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\MainPage\" />
+    <Folder Include="Views\ShoppingList\" />
+    <Folder Include="Renderer\" />
+    <Folder Include="ViewModels\ShoppingList\" />
+    <Folder Include="ViewModels\ShoppingList\Cell\" />
+    <Folder Include="Views\ShoppingList\Cell\" />
+    <Folder Include="Services\" />
+    <Folder Include="Converter\" />
   </ItemGroup>
 </Project>

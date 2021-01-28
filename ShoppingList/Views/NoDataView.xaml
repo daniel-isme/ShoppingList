@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ShoppingList.Views.NoDataView"
+    x:Name="NoDataViewName">
+    <ContentView.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="{Binding IsValueDataEmpty}">
+            <StackLayout
+                Margin="16"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    Text="{Binding DisplayText, Source={x:Reference NoDataViewName}}"
+                    FontSize="Body" FontAttributes="Bold"
+                    Margin="16,8,16,0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center" />
+                <Button
+                    Margin="0,32,0,0"
+                    Padding="16,0,16,0"
+                    WidthRequest="220"
+                    HeightRequest="56"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    Text="Refresh"
+                    IsVisible="{Binding IsVisibleRefreshButton, Source={x:Reference NoDataViewName}}"
+                    Command="{Binding RefreshCommand, Source={x:Reference NoDataViewName}}"
+                    FontSize="Medium"
+                    VerticalOptions="Start"
+                    HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

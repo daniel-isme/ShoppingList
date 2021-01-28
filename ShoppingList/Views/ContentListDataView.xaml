@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:ShoppingList.Views"
+    x:Class="ShoppingList.Views.ContentListDataView"
+    x:Name="ContentDataView">
+    <ContentView.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout
+                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding IsBusy, Source={x:Reference ContentDataView}, Converter={StaticResource InvertBoolConverter}}">
+                <StackLayout
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding IsValueDataEmpty, Source={x:Reference ContentDataView}, Converter={StaticResource InvertBoolConverter}}">
+                    <ListView
+                        CachingStrategy="RetainElement"
+                        RefreshControlColor="{StaticResource ActiveColor}"
+                        IsPullToRefreshEnabled="{Binding IsBusy, Source={x:Reference ContentDataView}, Converter={StaticResource InvertBoolConverter}}"
+                        IsRefreshing="{Binding IsRefreshing, Source={x:Reference ContentDataView}}"
+                        RefreshCommand="{Binding RefreshCommand, Source={x:Reference ContentDataView}}"
+                        SelectedItem="{Binding SelectedItem, Source={x:Reference ContentDataView}}"
+                        ItemTemplate="{Binding ItemTemplate, Source={x:Reference ContentDataView}}"
+                        ItemsSource="{Binding ListValues, Source={x:Reference ContentDataView}}"
+                        BackgroundColor="{StaticResource ListViewBackground}"
+                        ItemTapped="ListViewItem_Tapped"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        HasUnevenRows="True"
+                        SeparatorVisibility="None"
+                        IsGroupingEnabled="False"
+                        Header="{Binding Header, Source={x:Reference ContentDataView}}">
+                        <ListView.Footer>
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="{Binding FooterSpaceHeight, Source={x:Reference ContentDataView}}"/>
+                        </ListView.Footer>
+                    </ListView>
+                </StackLayout>
+                <view:NoDataView
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    RefreshCommand="{Binding RefreshCommand, Source={x:Reference ContentDataView}}"
+                    IsVisible="{Binding IsValueDataEmpty, Source={x:Reference ContentDataView}}"
+                    IsVisibleRefreshButton="{Binding IsVisibleRefreshButton, Source={x:Reference ContentDataView}}"
+                    DisplayText="{Binding NoDataDisplayText, Source={x:Reference ContentDataView}}" />
+            </StackLayout>
+            <view:ActivityView
+                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding IsBusy, Source={x:Reference ContentDataView}}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

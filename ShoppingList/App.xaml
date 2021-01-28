@@ -1,8 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShoppingList.App">
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:ShoppingList.Converter"
+    x:Class="ShoppingList.App">
     <Application.Resources>
+        <ResourceDictionary>
 
+            <!--Converter Styles-->
+            <converter:InvertBoolConverter x:Key="InvertBoolConverter"/>
+
+            <Color x:Key="NavigationPrimary">#F37F36</Color>
+            <Color x:Key="TextDefault">#778197</Color>
+            <Color x:Key="TextDefaultBold">#4F596E</Color>
+            <Color x:Key="TextDefaultRed">#EE3124</Color>
+            <Color x:Key="TextDefaultGreen">#34B27E</Color>
+            <Color x:Key="TextDefaultNone">#B2B5BCs</Color>
+            <Color x:Key="TextDefaultPrimaryDrak">#D23200</Color>
+            <Color x:Key="TextDefaultWhite">#FFFFFF</Color>
+            <Color x:Key="TextDefaultLight">#B2B5BC</Color>
+            <Color x:Key="TextDefaultSubLight">#989DA8</Color>
+            <Color x:Key="TextSub">#989DA8</Color>
+            <Color x:Key="ActiveColor">#FCB53B</Color>
+            <Color x:Key="ActiveColorLight">#fde5b8</Color>
+            <Color x:Key="BackgroundViewWithAlfa">#29000000</Color>
+            
+            <!--Color Styles-->
+            <Color x:Key="ListViewHeaderBackground">#778197</Color>
+            <Color x:Key="ListViewHeaderTitle">#FFFFFF</Color>
+            <Color x:Key="ListViewBackground">Transparent</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

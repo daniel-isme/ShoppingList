@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<renderer:CustomPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:renderer="clr-namespace:ShoppingList.Renderer"
+    xmlns:viewmodels="clr-namespace:ShoppingList.ViewModels"
+    xmlns:view="clr-namespace:ShoppingList.Views"
+    x:Class="ShoppingList.Views.ShoppingListPage">
+
+    <renderer:CustomPage.BindingContext>
+        <viewmodels:ShoppingListViewModel />
+    </renderer:CustomPage.BindingContext>
+
+    <renderer:CustomPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <view:ContentListDataView
+                    IsBusy="{Binding IsBusy}"
+                    IsValueDataEmpty="{Binding IsValueDataEmpty}"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    SelectedItem="{Binding SelectedItem}"
+                    ItemTemplate="{Binding ItemTemplate}"
+                    ListValues="{Binding ListValues}"
+                    IsVisibleRefreshButton="True"
+                    FooterSpaceHeight="80"
+                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </renderer:CustomPage.Content>
+
+</renderer:CustomPage>
